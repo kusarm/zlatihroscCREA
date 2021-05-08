@@ -3,7 +3,7 @@ import Modal from 'react-modal';
 import React, {useState} from "react";
 import ClientApi from "../../api/clientApi";
 import {useToasts} from "react-toast-notifications";
-
+import axios from 'axios';
 
 function ModalDodajPosest(props) {
     const [naziv, setNaziv] = useState('');
@@ -16,9 +16,11 @@ function ModalDodajPosest(props) {
 
 
     const shraniPosest = () => {
-        console.log("TODO: shraniPosest() naziv:[" + naziv + "]");
         setNaziv('');
         addToast('Posest dodana.', { appearance: 'success' })
+        axios.post('http://localhost:3005/posest/insert', {
+            name: naziv
+          });
         props.close();
     }
 
