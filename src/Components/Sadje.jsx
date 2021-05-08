@@ -1,5 +1,6 @@
 import React, {useState} from "react";
 import './../css/style.css';
+import ModalDodajPosest from './Modal/ModalDodajPosest'
 
 
 function Sadje(props){
@@ -9,8 +10,8 @@ function Sadje(props){
     const [delo, setDelo] = useState("");
     const [datum, setDatum] = useState(Date.now());
 
-    const [modalPosest, setModalPosest] = useState(false);
-    const [modalSorta, setModalSorta] = useState(false);
+    const [showModalPosest, setShowModalPosest] = useState(false);
+    const [showModalSorta, setShowModalSorta] = useState(false);
 
     const setDatumDela = (event) => {
 
@@ -42,7 +43,7 @@ function Sadje(props){
                 </div>
                 <div
                     style={{paddingLeft: "9px"}}
-                    onClick={() => setModalPosest(true)}
+                    onClick={() => setShowModalPosest(true)}
                 >
                     <button
                         className="action-button"
@@ -65,7 +66,7 @@ function Sadje(props){
                 </div>
                 <div
                     style={{paddingLeft: "9px"}}
-                    onClick={() => setModalSorta(true)}
+                    onClick={() => setShowModalSorta(true)}
                 >
                     <button
                         className="action-button"
@@ -110,7 +111,13 @@ function Sadje(props){
                     click me
                 </button>
             </div>
-
+            
+            <ModalDodajPosest
+                className="ModalDodajPosest"
+                show={showModalPosest}
+                
+                close={() => setShowModalPosest(false)}
+            />
 
         </div>
     )

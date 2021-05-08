@@ -148,3 +148,16 @@ div .colored-circle {
 .button-on-hover-cursor:hover {
   cursor: pointer;
 }
+
+
+.modalDodajPosest {
+  width: 25%;
+  height: 30vh;
+  overflow-y: auto;
+  background: lightblue;
+  position: relative;
+  left: 40%;
+  top: 25%;
+  border-radius: 5px;
+  padding-bottom: 2%;
+}
