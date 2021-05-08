@@ -1,24 +1,44 @@
-import logo from './logo.svg';
+import React,{useState} from 'react';
 import './App.css';
+import NavigationSidebar from '../src/Components/NavigationSidebar'
+import NavigationTopbar from '../src/Components/NavigationTopbar'
+import Main from '../src/Components/Main'
+import './css/style.css'
+import './font/fontawesome/css/all.css';
+import {ToastProvider} from "react-toast-notifications";
 
 function App() {
+
+  const [mode, setMode] = useState('home');
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+      <ToastProvider placement='bottom-right' autoDismiss={true} >
+        <div style={{width: "100vw", height: "100vh"}}>
+
+            <section id="page">
+              <header>
+                  <NavigationTopbar
+                    setMode={setMode}
+                  />
+              </header>
+              <nav>
+                <NavigationSidebar
+                  setMode={setMode}
+                  mode={mode}
+                />
+              </nav>
+              <main>
+                <Main
+                  mode={mode}
+                  setMode={setMode}
+                />
+              </main>
+              <footer>
+
+              </footer>
+            </section>
+        </div>
+      </ToastProvider>
   );
 }
 
