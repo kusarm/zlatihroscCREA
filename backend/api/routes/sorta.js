@@ -4,9 +4,11 @@ var cors = require('cors');
 var pgp = require('pg-promise')();    // kinda include
 var db = pgp("postgres://postgres:postgres@62.171.164.252:5458/postgres"); // database instance;
 router.use(cors());
-router.get('/all', async function (req, res, next) {
+router.post('/all', async function (req, res, next) {
 
-    const query = 'SELECT * FROM sorta';
+let id_posest = req.body.id_posest;
+
+    const query = "SELECT * FROM sorta where id_posest =" + id_posest + ";";
     db.any(query).then(sorta => {
         console.log(sorta);
         res.status(200).json
