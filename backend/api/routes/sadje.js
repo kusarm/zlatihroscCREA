@@ -6,12 +6,12 @@ var db = pgp("postgres://postgres:postgres@62.171.164.252:5458/postgres"); // da
 router.use(cors());
 router.get('/all', async function (req, res, next) {
 
-    const query = 'SELECT * FROM sorta';
-    db.any(query).then(sorta => {
-        console.log(sorta);
+    const query = 'SELECT * FROM sadje';
+    db.any(query).then(sadje => {
+        console.log(sadje);
         res.status(200).json
         ({
-            message: sorta
+            message: sadje
         });
     });
 
@@ -19,24 +19,22 @@ router.get('/all', async function (req, res, next) {
 
 router.post('/insert', async function (req, res, next) {
 
-    console.log(req.body);
 
-    let name = "'" + req.body.name + "'"; // NOT NULL
-    let id_posest = req.body.id_posest;   // NOT NULL
+    let name = "'" + req.body.name + "'";
+    let id_sorta = req.body.id_sorta;
+    let kolicina = "'" + req.body.kolicina + "'";
     let sharp = req.body.sharp ? req.body.sharp : "''";
-    let namedate = "'" + req.body.namedate + "'";
-    let kategorija = "'" + req.body.kategorija + "'";
-    let kolicina = "'" + req.body.kolicina + "'"  ;
 
-  
-    const query ="insert into sorta (id_posest, sharp, opis, kategorija, kolicina, posajeno) values (" + id_posest + ", " + sharp + ", " + name + ", " + kategorija + ", " + kolicina+ ", " + namedate + ");";
-    
 
-    db.any(query).then(sorta => {
-        console.log(sorta);
+
+    let query ="insert into sadje (id_sorta, sharp, opis, kolicina) values (" + id_sorta + "," + sharp + "," + name + "," + kolicina + ");";
+
+
+    db.any(query).then(sadje => {
+        console.log(sadje);
         res.status(200).json
         ({
-            message: sorta
+            message: sadje
         });
     });
 });

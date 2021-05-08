@@ -19,10 +19,12 @@ router.get('/all', async function (req, res, next) {
 
 router.post('/insert', async function (req, res, next) {
 
-    let name = req.body.name;
+    let name = "'" +  req.body.name + "'";
     let id_sorta = req.body.id_sorta;
+    let sharp = req.body.sharp ? req.body.sharp : "''";
+    let namedate = "'" + req.body.namedate + "'";
 
-    const query  = "insert into delo (id_sorta, opis) values (" + id_sorta + "," + "'" + name + "'" + ");";
+    const query  = "insert into delo (id_sorta, sharp, opis, datum) values (" + id_sorta + "," + sharp + "," + name + "," + namedate +");";
     db.any(query).then(delo => {
         console.log(delo);
         res.status(200).json

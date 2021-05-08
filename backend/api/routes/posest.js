@@ -32,11 +32,12 @@ router.post('/findById', async function (req, res, next) {
 
 router.post('/insert', async function (req, res, next) {
 
-    let name = req.body.name;
+    let name = "'" + req.body.name + "'";
+    let sharp = req.body.sharp || "''";
 
-    let cic = "insert into posest (opis) values ('" + name + "');";
-    console.log(cic);
-    db.any(cic).then(rispons => {
+    let query = "insert into posest (opis, sharp) values (" + name + "," + sharp +");";
+    console.log(query);
+    db.any(query).then(rispons => {
         console.log(rispons);
         res.status(200).json
         ({

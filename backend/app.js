@@ -34,6 +34,9 @@ app.use("/sorta", sortaRoutes);
 const deloRoutes = require('./api/routes/delo');
 app.use("/delo", deloRoutes);
 
+const sadjeRoutes = require('./api/routes/sadje');
+app.use("/sadje", sadjeRoutes);
+
 app.use('/', (req, res, next) => {
     res.status(200).json
     (
