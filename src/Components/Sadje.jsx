@@ -2,6 +2,7 @@ import React, {useState} from "react";
 import './../css/style.css';
 import ModalDodajPosest from './Modal/ModalDodajPosest'
 import ModalDodajSorto from './Modal/ModalDodajSorto'
+import axios from 'axios';
 
 
 function Sadje(props){
@@ -27,6 +28,12 @@ function Sadje(props){
         console.log("sorta: ", sorta);
         console.log("delo: ", delo);
         console.log("datum: ", datum);
+
+        axios.post('http://localhost:3005/delo/insert', {
+            "id_sorta" : sorta,
+            "name": delo,
+            "datename": datum
+          });
     }
 
 
@@ -108,8 +115,10 @@ function Sadje(props){
             <br></br>
 
             <div onClick={() => printEverything()}>
-                <button>
-                    click me
+                <button
+                    className="action-button"
+                >
+                    Dodaj delo
                 </button>
             </div>
             
@@ -123,6 +132,7 @@ function Sadje(props){
             <ModalDodajSorto
                 className="ModalDodajPosest"
                 show={showModalSorta}
+                idPosest={posest}
                 
                 close={() => setShowModalSorta(false)}
             />

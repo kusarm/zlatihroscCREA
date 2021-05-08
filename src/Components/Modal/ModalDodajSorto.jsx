@@ -3,6 +3,7 @@ import Modal from 'react-modal';
 import React, {useState} from "react";
 import ClientApi from "../../api/clientApi";
 import {useToasts} from "react-toast-notifications";
+import axios from 'axios';
 
 
 function ModalDodajSorto(props) {
@@ -16,9 +17,14 @@ function ModalDodajSorto(props) {
 
 
     const shraniSorto = () => {
-        console.log("TODO: shraniSorto() naziv:[" + naziv + "]");
+
+        // TODO : Nared tko, da ne bo idPosest hardcoded na 1
         setNaziv('');
         addToast('Sorta dodana.', { appearance: 'success' })
+        axios.post('http://localhost:3005/sorta/insert', {
+            name: naziv,
+            "id_posest": 1 //props.idPosest
+          });
         props.close();
     }
 
