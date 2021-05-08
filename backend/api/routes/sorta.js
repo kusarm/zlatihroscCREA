@@ -6,44 +6,31 @@ var db = pgp("postgres://postgres:postgres@62.171.164.252:5458/postgres"); // da
 router.use(cors());
 router.get('/all', async function (req, res, next) {
 
-    const query = 'SELECT * FROM posest';
-    db.any(query).then(posest => {
-        console.log(posest);
+    const query = 'SELECT * FROM sorta';
+    db.any(query).then(sorta => {
+        console.log(sorta);
         res.status(200).json
         ({
-            message: posest
+            message: sorta
         });
     });
 
-});
-
-router.post('/findById', async function (req, res, next) {
-
-    let id = req.body.idPosest;
-    const query =` SELECT * FROM sorta INNER JOIN posest ON sorta.id_posest = posest.id_posest WHERE sorta.id_posest=${id}`;
-    db.any(query).then(posest => {
-        console.log(posest);
-        res.status(200).json
-        ({
-            message: posest
-        });
-    });
 });
 
 router.post('/insert', async function (req, res, next) {
 
     let name = req.body.name;
-
-    let cic = "insert into posest (opis) values ('" + name + "');";
-    console.log(cic);
-    db.any(cic).then(rispons => {
-        console.log(rispons);
+    let id_posest = req.body.id_posest;
+    const query ="insert into sorta (id_posest, opis) values (" + id_posest + "," + "'" + name + "'" + ");";
+    db.any(query).then(sorta => {
+        console.log(sorta);
         res.status(200).json
         ({
-            message: rispons
+            message: sorta
         });
     });
 });
+
 
 router.post('/', async function (req, res, next) {
 
