@@ -1,6 +1,7 @@
 import React, {useState} from "react";
 import './../css/style.css';
 import ModalDodajPosest from './Modal/ModalDodajPosest'
+import ModalDodajSorto from './Modal/ModalDodajSorto'
 
 
 function Sadje(props){
@@ -117,6 +118,13 @@ function Sadje(props){
                 show={showModalPosest}
                 
                 close={() => setShowModalPosest(false)}
+            />
+
+            <ModalDodajSorto
+                className="ModalDodajPosest"
+                show={showModalSorta}
+                
+                close={() => setShowModalSorta(false)}
             />
 
         </div>
