@@ -43,7 +43,21 @@ CREATE TABLE public.Sadje
     FOREIGN KEY (id_sorta) REFERENCES Sorta(id_sorta)
 );
 
+CREATE TABLE public.Hashionary
+(
+    id_hashionary serial PRIMARY KEY,
+    id_sorta      int4,
+    sharp      VARCHAR(2000)
+);
+
+insert into Hashionary (id_sorta, sharp) values (1, '112');
+insert into Hashionary (id_sorta, sharp) values (1, '113');
+
+
+
 insert into posest (opis) values ('ŠentCrea');
+insert into posest (opis) values ('Novo Besto');
+insert into posest (opis) values ('Piran');
 
 insert into sorta (id_posest, opis, kategorija, kolicina, posajeno) values (1, 'Jonagold', 'Jabolko', '300', '1987-05-02');
 insert into sorta (id_posest, opis, kategorija, kolicina, posajeno) values (1, 'Topaz', 'Jabolko', '100', '1990-06-05');
