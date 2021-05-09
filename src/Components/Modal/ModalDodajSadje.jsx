@@ -6,7 +6,9 @@ import axios from 'axios';
 
 
 function ModalDodajSadje(props) {
-    const [naziv, setNaziv] = useState('');
+    const [idSorta, setIdSorta] = useState('');
+    const [kolicina, setKolicina] = useState('');
+
 
     const {addToast} = useToasts();
 
@@ -17,12 +19,22 @@ function ModalDodajSadje(props) {
     const shraniSadje = () => {
 
         // TODO : Nared tko, da ne bo idPosest hardcoded na 1
-        setNaziv('');
+        setKolicina('');
+        setIdSorta('');
         addToast('Sadje dodano.', { appearance: 'success' })
-        axios.post('http://localhost:3005/sadje/insert', {
-            name: naziv,
-            "id_posest": 1 //props.idPosest
-          });
+        axios.post('http://localhost:3005/bitcoin', {
+            "kolicina": kolicina,
+            "id_sorta": idSorta //props.idPosest
+            }).then(response => {
+                setTimeout(() => {
+                    console.log("burek");
+                }, 10000);
+
+                
+            });
+        
+        
+        
         props.close();
     }
 
@@ -51,18 +63,41 @@ function ModalDodajSadje(props) {
                         style={{
                             display: "flex",
                             justifyContent: "space-between",
-                            width: "250px",
+                            width: "350px",
                             paddingLeft: "20px",
                             paddingBottom: "5px"}}
                         >
-                        <div style={{ paddingRight: "36px"}}>
-                            Naziv:
+                        <div style={{ paddingRight: "56px"}}>
+                            {"Id sorta:"}
                         </div>
                         <div>
                             <input
                                 type="text"
-                                onChange={(e) => setNaziv(e.target.value)}
-                                value={naziv}
+                                onChange={(e) => setIdSorta(e.target.value)}
+                                value={idSorta}
+                                style={{width: "200px"}}
+                            />
+                        </div>
+                    </div>
+
+                    <br></br>
+
+                    <div 
+                        style={{
+                            display: "flex",
+                            justifyContent: "space-between",
+                            width: "350px",
+                            paddingLeft: "20px",
+                            paddingBottom: "5px"}}
+                        >
+                        <div style={{ paddingRight: "36px"}}>
+                            Kolicina:
+                        </div>
+                        <div>
+                            <input
+                                type="text"
+                                onChange={(e) => setKolicina(e.target.value)}
+                                value={kolicina}
                                 style={{width: "200px"}}
                             />
                         </div>

@@ -18,6 +18,9 @@ function Home(props) {
 
     const getAllDataFromSharp = () => {
         console.log("sharp: ", sharp);
+
+        
+
         axios.post('http://localhost:3005/sadje/getBySharp', {
             sharp: sharp
           }).then((response) => {

@@ -87,28 +87,11 @@ function Sadje(props){
                 </div>
             </div>
 
-            <div style={{display: "flex"}}>
-                <div >
-                    Izberi sadje: 
-                </div>
-                <div
-                    style={{paddingLeft: "20px"}}
-                    onChange={event => setSadje(event.target.value)}
-                >
-                    <input type="text"></input>
-                </div>
-                <div
-                    style={{paddingLeft: "9px"}}
-                    onClick={() => setShowModalSadje(true)}
-                >
-                    <button
-                        className="action-button"
-                    >
-                        Dodaj sadje
-                    </button>
-                </div>
-            </div>
-
+            
+            <br></br>            
+            <br></br>
+            <br></br>
+            <br></br>
             <br></br>
 
             <div style={{display: "flex"}}>
@@ -122,8 +105,8 @@ function Sadje(props){
                     <input type="text"></input>
                 </div>
             </div>
-
             <br></br>
+
 
             <div style={{display: "flex"}}>
                 <div >
@@ -135,17 +118,40 @@ function Sadje(props){
                 >
                     <input type="date"></input>
                 </div>
-            </div>
-
-            <br></br>
-
-            <div onClick={() => printEverything()}>
+                <div onClick={() => printEverything()}>
                 <button
                     className="action-button"
                 >
                     Dodaj delo
                 </button>
             </div>
+
+            </div>
+
+            <br></br>
+
+            
+
+            <br></br>
+            <br></br>
+            <br></br>
+            <br></br>
+            <br></br>
+
+
+            <div style={{display: "flex"}}>
+                <div
+                    style={{paddingLeft: "9px"}}
+                    onClick={() => setShowModalSadje(true)}
+                >
+                    <button
+                        className="action-button"
+                    >
+                        Dodaj sadje
+                    </button>
+                </div>
+            </div>
+
             
             <ModalDodajPosest
                 className="ModalDodajPosest"
