@@ -17,6 +17,17 @@ router.post('/findById', async function (req, res, next) {
     }, 2000);
 });
 
+router.post('/getRawById', async function (req, res, next) {
+    console.log("/findbyid/" + req.body["hex"]);
+    blockchain.decodeRawTransactionGetRaw(req.body["hex"]);
+    setTimeout(()=>{
+        const result = blockchain.getDecodedMsg();
+        res.status(200).json({
+            message: JSON.parse(result)
+        });
+    }, 2000);
+});
+
 router.post('/', async function (req, res, next) {
     console.log(req.body);
     // blockchain.getBlockCount();

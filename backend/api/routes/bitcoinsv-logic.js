@@ -144,6 +144,20 @@ methods.decodeRawTransaction = (hex) => {
     });
 };
 
+methods.decodeRawTransactionGetRaw = (hex) => {
+    exec(String.raw`.\bitcoin-cli.exe -datadir="./data" decoderawtransaction ${hex}`, (error, stdout, stderr) => {
+        if (error) {
+            console.log(`error: ${error.message}`);
+            return;
+        }
+        if (stderr) {
+            console.log(`stderr: ${stderr}`);
+            return;
+        }
+        decodedMsg = stdout;
+    });
+};
+
 methods.getDecodedMsg = ()=> {
     return decodedMsg;
 }
