@@ -11,14 +11,11 @@ function Nastavitve(props) {
     const [sharp1, setSharp1] = useState('');
 
     const handleInputForDataToBlockchain = (event) => {
-
         console.log(event.target.value);
         setDataforBc(event.target.value)
     }
 
-
     const handleInputForSharp = (event) => {
-
         console.log(event.target.value);
         setSharp1(event.target.value)
     }
@@ -63,7 +60,7 @@ function Nastavitve(props) {
                 </div>
 
                 <textarea rows="15" cols="50" style={{border: "1px solid black"}}>
-                {sharp}
+                    {sharp}
                 </textarea>
             </div>
 
