@@ -6,6 +6,7 @@ import axios from 'axios';
 function Nastavitve(props) {
 
     const [idSorta, setIdSorta] = useState('');
+    const [sharp, setSharp] = useState('');
 
     const handleInputChange = (event) => {
 
@@ -18,7 +19,7 @@ function Nastavitve(props) {
                 idSorta
             }).then(response => {
                 console.log("response", response);
-
+                setSharp(response.data.message);
                 
             });
     }
@@ -38,6 +39,10 @@ function Nastavitve(props) {
                 >
                     Send to blockchain
                 </button>
+            </div>
+
+            <div style={{border: "1px solid black", width:"300px", height:"200px"}}>
+                {sharp}
             </div>
         </div>
     )
