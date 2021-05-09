@@ -9,7 +9,7 @@ import {ToastProvider} from "react-toast-notifications";
 
 function App() {
 
-  const [mode, setMode] = useState('home');
+  const [mode, setMode] = useState('settings');
 
   return (
       <ToastProvider placement='bottom-right' autoDismiss={true} >
