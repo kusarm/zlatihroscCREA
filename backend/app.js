@@ -28,6 +28,7 @@ app.use((req, res, next) => {
 const posestRoutes = require('./api/routes/posest');
 app.use("/posest", posestRoutes);
 
+
 const sortaRoutes = require('./api/routes/sorta');
 app.use("/sorta", sortaRoutes);
 
