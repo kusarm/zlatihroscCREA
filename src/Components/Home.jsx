@@ -81,7 +81,9 @@ function Home(props) {
     };
 
     useEffect(() => {
-        getAllDataFromSharp();
+        if(sharp.length === 0){
+            setData([]);
+        }
     }, [sharp])
 
     return (
@@ -97,7 +99,7 @@ function Home(props) {
                     </div>
                     <br></br>
                     <div
-                        onBlur={event => setSharp(event.target.value)}>
+                        onChange={event => setSharp(event.target.value)}>
                         <input type="text"></input>
                     </div>
 
@@ -113,6 +115,7 @@ function Home(props) {
                     </div>
                 </div>
             </div>
+            {data.length ?
             <div style={{padding: "20px", borderLeft: "1px solid black", height: "100vh"}}>
                 <div style={{display: "flex"}}>
                     <div >
@@ -164,25 +167,23 @@ function Home(props) {
                             </div>
                         </div>
                     </center>
-                    
                    
                 </div>
-
-                <DataTable 
-                    columns={columns} 
-                    data={data}
-                    customStyles={customStyles}
-                    noHeader={true}
-                />
-
-                <div>
-                    burek2
-                </div>
-
-                <div>
-                    burek3
-                </div>
+                {data.length ?
+                    <DataTable 
+                        columns={columns} 
+                        data={data}
+                        customStyles={customStyles}
+                        noHeader={true}
+                    />
+                    :
+                    null
+            
+                }
             </div>
+
+        :null}
+          
         </div>
 
         

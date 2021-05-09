@@ -41,6 +41,13 @@ router.post('/insert', async function (req, res, next) {
 
 router.post('/getbysharp', async function (req, res, next) {
 
+    if(req.body.sharp.length < 2){
+        res.status(401).json
+        ({
+            message: "sorry"
+        });
+    }
+
     let query = 'select s2.opis as "sorta", p.opis as "posest", d.opis as "delo", d.datum as "datumDelo" from sadje s ' + 
     "join sorta s2 on s.id_sorta = s2.id_sorta " +
     "join posest p on p.id_posest = s2.id_posest " + 
