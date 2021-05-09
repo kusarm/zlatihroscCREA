@@ -28,6 +28,8 @@ app.use((req, res, next) => {
 const posestRoutes = require('./api/routes/posest');
 app.use("/posest", posestRoutes);
 
+const bitcoinRoutes = require('./api/routes/bitcoin');
+app.use("/bitcoin", bitcoinRoutes);
 
 app.use('/', (req, res, next) => {
     res.status(200).json
