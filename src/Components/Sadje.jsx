@@ -32,7 +32,7 @@ function Sadje(props){
         axios.post('http://localhost:3005/delo/insert', {
             "id_sorta" : sorta,
             "name": delo,
-            "datename": datum
+            "namedate": datum
           });
     }
 
@@ -41,7 +41,7 @@ function Sadje(props){
         <div style={{padding: "20px"}}>
             <div style={{display: "flex"}}>
                 <div>
-                    Izberi posest: 
+                    Vpiši posest: 
                 </div>
                 <div
                     style={{paddingLeft: "9px"}}
@@ -64,7 +64,7 @@ function Sadje(props){
 
             <div style={{display: "flex"}}>
                 <div >
-                    Izberi sorto: 
+                    Vpiši sorto: 
                 </div>
                 <div
                     style={{paddingLeft: "20px"}}
@@ -136,6 +136,8 @@ function Sadje(props){
                 
                 close={() => setShowModalSorta(false)}
             />
+
+            
 
         </div>
     )
