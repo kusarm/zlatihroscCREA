@@ -47,7 +47,7 @@ function Nastavitve(props) {
                     <label>Vnesi kar želiš zapisati v blockchain</label>
                     <br></br>
                     <br></br>
-                    <input type="text" onChange={(event) => handleInputForDataToBlockchain(event)}></input>
+                    <textarea rows="15" cols="50" type="text" onChange={(event) => handleInputForDataToBlockchain(event)}></textarea>
                 </div>
                     <br></br>
                 <div onClick={() => onSubmitToSendToBC()}>
@@ -71,7 +71,7 @@ function Nastavitve(props) {
                     <label>Vnesi hash, da pogledamo v blockchain</label>
                     <br></br>
                     <br></br>
-                    <input type="text" onChange={(event) => handleInputForSharp(event)}></input>
+                    <textarea rows="15" cols="50" type="text" onChange={(event) => handleInputForSharp(event)}></textarea>
                 </div>
                     <br></br>
                 <div onClick={() => toGetDatafromBC()}>
