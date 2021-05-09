@@ -31,8 +31,8 @@ function Nastavitve(props) {
     }
 
     const toGetDatafromBC = () => {
-        axios.post('http://localhost:3005/bitcoin', {
-                sharp1: sharp1
+        axios.post('http://localhost:3005/bitcoin/getRawById', {
+                hex: sharp1
             }).then(response => {
                 console.log("response", response);
                 setDatafromBC(response.data.message);
