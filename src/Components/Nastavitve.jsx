@@ -41,9 +41,9 @@ function Nastavitve(props) {
                 </button>
             </div>
 
-            <div style={{border: "1px solid black", width:"300px", height:"200px"}}>
-                {sharp}
-            </div>
+            <textarea rows="4" cols="50" style={{border: "1px solid black"}}>
+              {sharp}
+            </textarea>
         </div>
     )
 }
