@@ -13,7 +13,7 @@ function App() {
 
   return (
       <ToastProvider placement='bottom-right' autoDismiss={true} >
-        <div style={{width: "100vw", height: "100vh", overflowX: "hidden"}}>
+        <div style={{width: "100vw", height: "100vh", overflowX: "hidden", overflowY: "hidden"}}>
 
             <section id="page">
               <header>

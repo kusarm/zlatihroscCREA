@@ -27,13 +27,23 @@ function ModalDodajSadje(props) {
             "id_sorta": idSorta //props.idPosest
             }).then(response => {
                 setTimeout(() => {
-                    console.log("burek");
+                    console.log("response", response);
                 }, 10000);
 
                 
             });
         
-        
+        axios.post('http://localhost:3005/sadje/insert', {
+                "kolicina": kolicina,
+                "id_sorta": idSorta //props.idPosest
+                }).then(response => {
+                    setTimeout(() => {
+                        console.log("response", response);
+                    }, 10000);
+    
+                    
+                });
+            
         
         props.close();
     }
