@@ -41,11 +41,13 @@ router.post('/insert', async function (req, res, next) {
 
 router.post('/getbysharp', async function (req, res, next) {
 
-    let query = "select s2.opis as 'sorta', p.opis as 'posest', d.opis as 'delo', d.datum as 'datumDelo' from sadje s " + 
+    let query = 'select s2.opis as "sorta", p.opis as "posest", d.opis as "delo", d.datum as "datumDelo" from sadje s ' + 
     "join sorta s2 on s.id_sorta = s2.id_sorta " +
     "join posest p on p.id_posest = s2.id_posest " + 
     "join delo d on d.id_sorta = s2.id_sorta " +
-    "where s.sharp = " + req.body.sharp + ";";
+    "where s.sharp = '" + req.body.sharp + "';";
+
+    console.log(query);
 
     db.any(query).then(sharpie => {
         console.log(sharpie);
