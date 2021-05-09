@@ -12,16 +12,16 @@ router.post('/findById', async function (req, res, next) {
     setTimeout(()=>{
         const result = blockchain.getDecodedMsg();
         res.status(200).json({
-            message: result
+            message: JSON.parse(result)
         });
     }, 2000);
 });
 
 router.post('/', async function (req, res, next) {
-    console.log(req.body["hex"]);
-    blockchain.getBlockCount();
+    console.log(req.body);
+    // blockchain.getBlockCount();
 
-    let temp = ascii_to_hexa(req.body["hex"]);
+    let temp = ascii_to_hexa(JSON.stringify(req.body));
     console.log(temp);
     blockchain.createRawTransaction(temp);
     setTimeout(() => {
@@ -35,7 +35,7 @@ router.post('/', async function (req, res, next) {
                 blockchain.sendRawTransaction(result);
                 setTimeout(()=>{
                     let result = blockchain.getResult();
-                    console.log("resultkdd: " + result);
+                    console.log("result: " + result);
                     finalHash = result;
                     res.status(200).json({
                         message: result

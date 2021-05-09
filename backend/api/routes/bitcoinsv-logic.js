@@ -130,8 +130,8 @@ methods.decodeRawTransaction = (hex) => {
         }
         let temp = JSON.parse(stdout)["vout"][0]["scriptPubKey"]["asm"];
         let temp2 = JSON.parse(stdout)["vout"][1]["scriptPubKey"]["asm"];
-        console.log(`decode - stdout: ${temp}`);
-        console.log(`decode - stdout: ${temp2}`);
+        // console.log(`decode - stdout: ${temp}`);
+        // console.log(`decode - stdout: ${temp2}`);
         if (temp.includes("0 OP_RETURN ")) {
             temp = temp.split(" ")[2];
             result = temp;
@@ -140,7 +140,6 @@ methods.decodeRawTransaction = (hex) => {
             result = temp2;
         }
         result = hex2a(result);
-        console.log("tprav result:;.-,-." + result);
         decodedMsg = result;
     });
 };
