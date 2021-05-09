@@ -2,6 +2,7 @@ import React, {useState} from "react";
 import './../css/style.css';
 import ModalDodajPosest from './Modal/ModalDodajPosest'
 import ModalDodajSorto from './Modal/ModalDodajSorto'
+import ModalDodajSadje from './Modal/ModalDodajSadje'
 import axios from 'axios';
 
 
@@ -10,10 +11,12 @@ function Sadje(props){
     const [posest, setPosest] = useState("");
     const [sorta, setSorta] = useState("");
     const [delo, setDelo] = useState("");
+    const [sadje, setSadje] = useState("");
     const [datum, setDatum] = useState(Date.now());
 
     const [showModalPosest, setShowModalPosest] = useState(false);
-    const [showModalSorta, setShowModalSorta] = useState(false);
+    const [showModalSorta, setShowModalSorta] = useState(false); 
+    const [showModalSadje, setShowModalSadje] = useState(false);   
 
     const setDatumDela = (event) => {
 
@@ -84,6 +87,28 @@ function Sadje(props){
                 </div>
             </div>
 
+            <div style={{display: "flex"}}>
+                <div >
+                    Izberi sadje: 
+                </div>
+                <div
+                    style={{paddingLeft: "20px"}}
+                    onChange={event => setSadje(event.target.value)}
+                >
+                    <input type="text"></input>
+                </div>
+                <div
+                    style={{paddingLeft: "9px"}}
+                    onClick={() => setShowModalSadje(true)}
+                >
+                    <button
+                        className="action-button"
+                    >
+                        Dodaj sadje
+                    </button>
+                </div>
+            </div>
+
             <br></br>
 
             <div style={{display: "flex"}}>
@@ -137,7 +162,13 @@ function Sadje(props){
                 close={() => setShowModalSorta(false)}
             />
 
-            
+            <ModalDodajSadje
+                className="ModalDodajSadje"
+                show={showModalSadje}
+                idPosest={posest}
+
+                close={() => setShowModalSadje(false)}
+            />
 
         </div>
     )
