@@ -20,7 +20,7 @@ router.get('/all', async function (req, res, next) {
 router.post('/findById', async function (req, res, next) {
 
     let id = req.body.idPosest;
-    const query =` SELECT * FROM sorta INNER JOIN posest ON sorta.id_posest = posest.id_posest WHERE sorta.id_posest=${id}`;
+    const query =` SELECT * FROM sorta INNER JOIN posest ON sorta.id_posest = posest.id_posest WHERE posest.opis='${id}'`;
     db.any(query).then(posest => {
         console.log(posest);
         res.status(200).json
