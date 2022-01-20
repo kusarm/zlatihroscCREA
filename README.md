@@ -1,4 +1,4 @@
-###Koraki za preizkus aplikacije
+### Koraki za preizkus aplikacije
 1. premaknite se v mapo /backend, poženite ukaz `.\bitcoind.exe -datadir="./data"`
 2. ko se izvrši ukaz poženite še `node server.js`  
 3. pojdite nazaj na `root` aplikacije in poženite `npm start`
